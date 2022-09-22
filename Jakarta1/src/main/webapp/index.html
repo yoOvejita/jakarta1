@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <h1>Hello World!</h1><br/>
+        <h1>Petición por GET</h1>
+        <form action="PrimerController">
+        	<input type="text" placeholder="Nombre usuario" name="usuario"/>
+        	<input type="submit" value="ENVIAR"/>
+        </form>
+        <br/>
+        <h1>Petición por POST</h1>
+        <form action="PrimerController" method="post">
+        	Nombre: <input type="text" placeholder="Nombre usuario" name="usuario2"/><br/>
+        	<input type="submit" value="ENVIAR"/>
+        </form>
+    </body>
+</html>
