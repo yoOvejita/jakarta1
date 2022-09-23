@@ -21,4 +21,24 @@
     <servlet-name>xyz</servlet-name>
     <url-pattern>/PrimerController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SumaController</display-name>
+    <servlet-name>SumaController</servlet-name>
+    <servlet-class>com.pepe.Jakarta1.Controllers.SumaController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SumaController</servlet-name>
+    <url-pattern>/suma</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReqDispController</display-name>
+    <servlet-name>ReqDispController</servlet-name>
+    <servlet-class>com.pepe.Jakarta1.Controllers.ReqDispController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReqDispController</servlet-name>
+    <url-pattern>/ReqDispController</url-pattern>
+  </servlet-mapping>
 </web-app>
