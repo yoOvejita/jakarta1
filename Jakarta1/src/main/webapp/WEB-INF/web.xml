@@ -16,6 +16,10 @@
     <display-name>PrimerController</display-name>
     <servlet-name>xyz</servlet-name>
     <servlet-class>com.pepe.Jakarta1.Controllers.PrimerController</servlet-class>
+    <init-param>
+    	<param-name>usuario</param-name>
+    	<param-value>Ana</param-value>
+    </init-param>
   </servlet>
   <servlet-mapping>
     <servlet-name>xyz</servlet-name>
@@ -41,4 +45,43 @@
     <servlet-name>ReqDispController</servlet-name>
     <url-pattern>/ReqDispController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>paraMapeoController</display-name>
+    <servlet-name>paraMapeoController</servlet-name>
+    <servlet-class>com.pepe.Jakarta1.Controllers.paraMapeoController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>paraMapeoController</servlet-name>
+    <url-pattern>/paraMapeoController</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Servlet para ejemplificar el alcance de sesion, contexto y request</description>
+    <display-name>AlcanceController</display-name>
+    <servlet-name>AlcanceController</servlet-name>
+    <servlet-class>com.pepe.Jakarta1.Controllers.AlcanceController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AlcanceController</servlet-name>
+    <url-pattern>/alcancec</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CookiesController</display-name>
+    <servlet-name>CookiesController</servlet-name>
+    <servlet-class>com.pepe.Jakarta1.Controllers.CookiesController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CookiesController</servlet-name>
+    <url-pattern>/galletas</url-pattern>
+  </servlet-mapping>
+  
+  <context-param>
+  	<param-name>usuario</param-name>
+  	<param-value>pepe</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>password</param-name>
+  	<param-value>123456</param-value>
+  </context-param>
 </web-app>

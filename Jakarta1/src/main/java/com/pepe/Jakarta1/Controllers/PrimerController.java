@@ -3,6 +3,7 @@ package com.pepe.Jakarta1.Controllers;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -29,6 +30,11 @@ public class PrimerController extends HttpServlet {
 		PrintWriter escritor = response.getWriter();
 		String nombre = request.getParameter("usuario");
 		escritor.println("<h1>Hola querido " + nombre + "</h1>");
+		
+		ServletConfig config = getServletConfig();
+		String nom = config.getInitParameter("usuario");
+		escritor.append("Rescatado de parámetro de ServletConfig: " + nom);
+		
 	}
 
 	/**
