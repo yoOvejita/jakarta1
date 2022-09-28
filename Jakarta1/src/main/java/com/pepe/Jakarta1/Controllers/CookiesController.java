@@ -41,14 +41,14 @@ public class CookiesController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Cookie[] galletas = request.getCookies();
-		
+		response.getWriter().println("<html><body bgcolor ='yellow'>");
 		for(Cookie c : galletas) {
 			if(c.getName().equals("telefono"))
-				response.getWriter().append("Cookie encontrada! el telefono es: " + c.getValue());
+				response.getWriter().println("<h1>Cookie encontrada! el telefono es: " + c.getValue()+"</h1>");
 			else
 				response.getWriter().append("Cookie no encontrada! no existe la cookie de telefono.");
-			
 		}
+		response.getWriter().println("</body></html>");
 		
 		ServletContext context = getServletContext();
 		
