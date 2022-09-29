@@ -1,6 +1,6 @@
 <%@page contentType="text/html; charset=UTF-8" %>
 <%@page import="com.pepe.Jakarta1.Models.Estudiante" import="java.util.Date"%>
-
+<%@ include file="encabezado.jsp" %>
 
 
 <!DOCTYPE html>
