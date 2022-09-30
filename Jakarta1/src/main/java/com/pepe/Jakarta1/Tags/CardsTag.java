@@ -9,10 +9,45 @@ import jakarta.servlet.jsp.tagext.SimpleTagSupport;
 
 public class CardsTag  extends SimpleTagSupport{
 	StringWriter sw = new StringWriter();
+	private String titulo;
+	private String valor;
+	
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+		
+	}
+	
+
+	public void setValor(String valor) {
+		this.valor = valor;
+	}
+
+
 	public void doTag() throws JspException, IOException {
+		String aux = valor != null ? valor : "CLICK";
+		
+		if(titulo != null) {//Se le pas´ço un valor a la propiedad
+			getJspBody().invoke(sw);
+			getJspContext().getOut().println("<div class=\"card\" style=\"width: 18rem;\">" +
+					   "<img src=\"...\" class=\"card-img-top\" alt=\"...\">" +
+					   "<div class=\"card-body\">" +
+					   "<h5 class=\"card-title\">"+titulo+"</h5>" +
+					   "<p class=\"card-text\">" + sw.toString() +"</p>" +
+					   "<a href=\"#\" class=\"btn btn-primary\">"+aux+"</a>" +
+					   "</div></div>");
+		}else {
 			//sw.append("<h1>Finjamos que es un card</h1>");
 			getJspBody().invoke(sw);
-		   getJspContext().getOut().println(sw.toString());
+		   getJspContext().getOut().println("<div class=\"card\" style=\"width: 18rem;\">" +
+				   "<img src=\"...\" class=\"card-img-top\" alt=\"...\">" +
+				   "<div class=\"card-body\">" +
+				   "<h5 class=\"card-title\">Card title</h5>" +
+				   "<p class=\"card-text\">" + sw.toString() +"</p>" +
+				   "<a href=\"#\" class=\"btn btn-primary\">"+aux+"</a>" +
+				   "</div></div>");
+		}
+		
+			
 		   
 		   /*
 	      JspWriter out = getJspContext().getOut();//nuestro writer

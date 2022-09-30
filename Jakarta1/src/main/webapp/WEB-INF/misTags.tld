@@ -6,5 +6,11 @@
       <name>tarjeta</name>
       <tag-class>com.pepe.Jakarta1.Tags.CardsTag</tag-class>
       <body-content>scriptless</body-content>
+      <attribute>
+         <name>titulo</name>
+      </attribute>
+      <attribute>
+         <name>valor</name>
+      </attribute>
    </tag>
 </taglib>

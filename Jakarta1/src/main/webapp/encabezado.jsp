@@ -13,6 +13,12 @@
 	<h1>Est es un encabezado</h1>
 	<br/>
 	
-	<pp:tarjeta>Hola a todos, esta es una tarjeta</pp:tarjeta>
+	<pp:tarjeta>
+		Hola a todos, esta es una tarjeta
+	</pp:tarjeta>
+	
+	<pp:tarjeta titulo="GRAN FIESTA GRAN" valor = "ASISTIR">
+		La fiesta se llevará acabo en la plaza X.
+	</pp:tarjeta>
 </body>
 </html>
