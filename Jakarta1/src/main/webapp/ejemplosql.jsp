@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@page import="java.sql.*" %>
+<%@page import="java.sql.*, com.pepe.Jakarta1.BaseDeDatos.Conexion" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +8,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-<table border="1">
+
+	<h1>Insertando un registro</h1>
+	
+	<%
+		Conexion c = new Conexion();
+		c.insertarEmpleado(5, "Prueba", "PreparedStatement");
+		out.println("Registro exitoso.");
+	%>
+	
+	<h1>Listando registros</h1>
+	<table border="1">
 	<%
 		Class.forName("org.postgresql.Driver");
 	
@@ -23,7 +33,9 @@
 			out.println("</tr>");
 			
 		}
-		
+		con.close();
+		st.close();
+		rs.close();
 		
 	%>
 	</table>
