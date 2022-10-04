@@ -82,4 +82,77 @@ public class Conexion {
 		pst.close();
 		return "ok";
 	}
+	
+	public String getEmpleado(String apellido) throws SQLException {
+		Connection con = DriverManager.getConnection("jdbc:postgresql://192.168.1.253/empresay","postgres","123456");
+		PreparedStatement pst = con.prepareStatement("SELECT * FROM empleado WHERE apellido = ?");//para consultar datos con parametro
+		pst.setString(1, apellido);
+		ResultSet rs = pst.executeQuery();
+		String retorno = "";
+		while(rs.next())
+			retorno += rs.getInt(1) + " - " + rs.getString(2) + " " + rs.getString(3)+ "\n";
+		con.close();
+		pst.close();
+		rs.close();
+		return retorno;
+	}
+	
+	public void actualizarEmpleado(int id, String nombre, String apellido) throws SQLException {
+		Connection con = DriverManager.getConnection("jdbc:postgresql://192.168.1.253/empresay","postgres","123456");
+        String sql = "UPDATE empleado SET nombre = ? , "
+                + "apellido = ?"
+                + "WHERE id = ?";
+
+        PreparedStatement ps = con.prepareStatement(sql);
+
+            ps.setString(1, nombre);
+            ps.setString(2, apellido);
+            ps.setInt(3, id);
+            ps.executeUpdate();
+       
+    }
+	
+	public void borrarEmpleado(int id)  throws SQLException {
+		Connection con = DriverManager.getConnection("jdbc:postgresql://192.168.1.253/empresay","postgres","123456");
+        String sql = "DELETE FROM empleado WHERE id = ?";
+
+        PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+       
+    }
+	
+	public void agregarVenta(int idP, String nomP, double precio)  throws SQLException {
+        String sqlProducto = "INSERT INTO producto VALUES(?, ?, ?)";
+        String sqlVenta = "INSERT INTO venta(id, idEmp, idProd, cantidad) VALUES(?,?,?,?)";
+        ResultSet rs = null;
+        PreparedStatement ps1 = null, ps2 = null;
+        Connection con = DriverManager.getConnection("jdbc:postgresql://192.168.1.253/empresay","postgres","123456");
+        
+            con.setAutoCommit(false);
+            ps1 = con.prepareStatement(sqlProducto, Statement.RETURN_GENERATED_KEYS);
+            ps1.setInt(1, idP);
+            ps1.setString(2, nomP);
+            ps1.setDouble(3, precio);
+            int filasAfectadas = ps1.executeUpdate();
+            rs = ps1.getGeneratedKeys();
+            int productoId = 0;
+            if (rs.next()) productoId = rs.getInt(1);
+            if (filasAfectadas != 1) con.rollback();
+            ps2 = con.prepareStatement(sqlVenta);
+            ps2.setInt(1, 111);
+            ps2.setInt(2,5);
+            ps2.setInt(3, productoId);
+            ps2.setInt(4, 3);
+            ps2.executeUpdate();
+            con.commit();
+        
+                if (rs != null) rs.close();
+                if (ps1 != null) ps1.close();
+                if (ps2 != null) ps2.close();
+                if (con != null) con.close();
+            
+        
+    }
+	
 }

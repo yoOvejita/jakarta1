@@ -9,14 +9,29 @@
 </head>
 <body>
 
-	<h1>Insertando un registro</h1>
+	<h1>obteniendo registros con WHERE</h1>
 	
 	<%
 		Conexion c = new Conexion();
-		c.insertarEmpleado(5, "Prueba", "PreparedStatement");
-		out.println("Registro exitoso.");
+		//c.insertarEmpleado(6, "Raul", "Roca");
+		//out.println("Registro exitoso.");
+		String emps = c.getEmpleado("Roca");
+		
+		out.println(emps);
 	%>
+	JSTL
+	<br/>
 	
+	${emps} 
+	<br/>
+	<h1>Modificando un registro</h1>
+	<%
+		c.actualizarEmpleado(5, "Samanta", "Barrios");
+	%>
+	<h1>Eliminando un registro</h1>
+	<%
+		c.borrarEmpleado(6);
+	%>
 	<h1>Listando registros</h1>
 	<table border="1">
 	<%
@@ -39,5 +54,10 @@
 		
 	%>
 	</table>
+	
+	<h1>Agregando un registro de Venta</h1>
+	<%
+		c.agregarVenta(5, "Mermelada", 15.5);
+	%>
 </body>
 </html>
