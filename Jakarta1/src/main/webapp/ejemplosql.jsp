@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@page import="java.sql.*, com.pepe.Jakarta1.BaseDeDatos.Conexion" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,18 +20,24 @@
 		
 		out.println(emps);
 	%>
-	JSTL
+	<br/>JSTL
 	<br/>
 	
-	${emps} 
+	
+	<c:out value="${emps}"/>
+	
+	<c:import url="https://ww.google.com"></c:import>
+	
+	<c:set value="abc" var="nom_de_variable"></c:set>
+	<c:out value="${nom_de_variable}"/>
 	<br/>
 	<h1>Modificando un registro</h1>
 	<%
-		c.actualizarEmpleado(5, "Samanta", "Barrios");
+		//c.actualizarEmpleado(5, "Samanta", "Barrios");
 	%>
 	<h1>Eliminando un registro</h1>
 	<%
-		c.borrarEmpleado(6);
+		//c.borrarEmpleado(6);
 	%>
 	<h1>Listando registros</h1>
 	<table border="1">
@@ -57,7 +64,7 @@
 	
 	<h1>Agregando un registro de Venta</h1>
 	<%
-		c.agregarVenta(5, "Mermelada", 15.5);
+		//c.agregarVenta(5, "Mermelada", 15.5);
 	%>
 </body>
 </html>
