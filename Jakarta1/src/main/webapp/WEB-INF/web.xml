@@ -17,8 +17,8 @@
     <servlet-name>xyz</servlet-name>
     <servlet-class>com.pepe.Jakarta1.Controllers.PrimerController</servlet-class>
     <init-param>
-    	<param-name>usuario</param-name>
-    	<param-value>Ana</param-value>
+      <param-name>usuario</param-name>
+      <param-value>Ana</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>
@@ -75,13 +75,34 @@
     <servlet-name>CookiesController</servlet-name>
     <url-pattern>/galletas</url-pattern>
   </servlet-mapping>
-  
   <context-param>
-  	<param-name>usuario</param-name>
-  	<param-value>pepe</param-value>
+    <param-name>usuario</param-name>
+    <param-value>pepe</param-value>
   </context-param>
   <context-param>
-  	<param-name>password</param-name>
-  	<param-value>123456</param-value>
+    <param-name>password</param-name>
+    <param-value>123456</param-value>
   </context-param>
+  <filter>
+    <display-name>UnFiltro</display-name>
+    <filter-name>UnFiltro</filter-name>
+    <filter-class>com.pepe.Jakarta1.Filters.UnFiltro</filter-class>
+    <init-param>
+      <param-name>enMantenimiento</param-name>
+      <param-value>no</param-value>
+    </init-param>
+  </filter>
+  <filter-mapping>
+    <filter-name>UnFiltro</filter-name>
+    <url-pattern>/galletas</url-pattern>
+  </filter-mapping>
+  <filter>
+    <display-name>ContadorFilter</display-name>
+    <filter-name>ContadorFilter</filter-name>
+    <filter-class>com.pepe.Jakarta1.Filters.ContadorFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>ContadorFilter</filter-name>
+    <url-pattern>/galletas</url-pattern>
+  </filter-mapping>
 </web-app>

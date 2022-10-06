@@ -58,5 +58,18 @@
 	Indice: ${func:indexOf(cadena, "na ") } 
 	<br/>
 	Está en la cadena: ${func:contains(cadena,"todo") }
+	<br/>
+	<c:if test="${func:contains(cadena,'cual')}">
+		Efectivamente, la subcadena está dentro la cadena principal.
+	</c:if>
+	<br/>
+	<c:if test="${func:endsWith(cadena,'Esta es una')}">
+		Efectivamente, la subcadena está al final de la cadena principal.
+	</c:if>
+	
+	<br/>
+	<h3>Convirtiendo el texto a mayúsculas</h3>
+	${func:toUpperCase(estudiante.nombre)} <br/>
+	${func:toLowerCase(estudiante.nombre)}
 </body>
 </html>
